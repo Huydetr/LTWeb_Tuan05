@@ -1,0 +1,50 @@
+﻿@model List<bai3.Models.SanPham>
+@{
+    ViewBag.Title = "Danh sách Sản phẩm";
+    // Ép kiểu ViewBag thành List<Loai>
+    List<bai3.Models.Loai> loaiList = ViewBag.LoaiList as List<bai3.Models.Loai>;
+}
+
+<h2>Danh sách Sản phẩm</h2>
+
+<h3>Menu Danh sách Loại</h3>
+<ul class="nav">
+    @foreach (var loai in loaiList)
+    {
+        <li>
+            @* Liên kết lọc theo MaLoai *@
+            <a href="@Url.Action("Index", "SanPham", new { MaLoai = loai.MaLoai })">
+                @loai.TenLoai
+            </a>
+        </li>
+    }
+</ul>
+
+<hr />
+
+<h3>Danh sách Sản phẩm</h3>
+<table class="table">
+    <tr>
+        <th>Mã SP</th>
+        <th>Tên SP</th>                                                         
+        <th>Hình ảnh (Đường dẫn)</th>
+        <th>Giá</th>
+        <th>Mô tả</th>
+        <th>Mã loại</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.MaSP</td>
+            <td>@item.TenSP</td>
+            <td>
+                @* Hiệu hình đường dẫn thành image 80x50 *@
+                <img src="~/Images/@item.DuongDan" alt="@item.TenSP" style="width:80px; height:50px;" />
+                <br /> (@item.DuongDan)
+            </td>
+            <td>@item.Gia.ToString("N0") VNĐ</td>
+            <td>@item.MoTa</td>
+            <td>@item.MaLoai</td>
+        </tr>
+    }
+</table>

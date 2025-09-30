@@ -1,0 +1,2 @@
+C:\Users\ASUS\Documents\Zalo Received Files\LTWeb\LTWebTuan05\bai02\obj\Debug\bai02.csproj.AssemblyReference.cache
+C:\Users\ASUS\Documents\Zalo Received Files\LTWeb\LTWebTuan05\bai02\obj\Debug\bai02.csproj.CoreCompileInputs.cache
